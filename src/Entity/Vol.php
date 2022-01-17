@@ -9,7 +9,6 @@ use DateTime;
  *  @ORM\Entity 
 */
 final class Vol {
-    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -24,14 +23,14 @@ final class Vol {
 
 
     /**
-     * @ORm\Column(length="8", name="dateDepart")
+     * @ORm\Column(length="10", name="dateDepart", type="datetime")
      */
-    private DateTime $dateDepart;
+    private $dateDepart;
 
     /**
-     * @ORm\Column(length="8", name="dateArrivee")
+     * @ORm\Column(length="10", name="dateArrivee", type="datetime")
      */
-    private DateTime $dateArrivee;
+    private $dateArrivee;
 
     /**
      * @ORM\ManyToOne(targetEntity="Aeroport") //plusieurs pour 1, plusieurs emprunt peuvent avoir 1 seul et meme membre
@@ -44,8 +43,9 @@ final class Vol {
      * @ORM\JoinColumn(name="lieuArrivee_id", referencedColumnName="id") //précise le nom de la colonne de ref avec laquelle on fait la relation
      */
     private Aeroport $lieuArrivee;
+    
 
-    public function __construct(int $id, string $nom, DateTime $dateDepart, DateTime $dateArrivee, Aeroport $lieuDepart, Aeroport $lieuArrivee)
+    public function __construct(string $nom, DateTime $dateDepart, DateTime $dateArrivee, Aeroport $lieuDepart, Aeroport $lieuArrivee)
     {
         $this->id = random_int(1, 99999);
         $this->nom = $nom;
@@ -53,8 +53,9 @@ final class Vol {
         $this->lieuDepart = $lieuDepart;
         $this->lieuArrivee = $lieuArrivee;
 
-        $this->dateArrivee = $dateArrivee;
+        $this->dateArrivee =  $dateArrivee;
         $this->dateDepart = $dateDepart;
+        
     }
 
     public function ouvrirReservation()
@@ -99,7 +100,7 @@ final class Vol {
     /**
      * Get the value of dateDepart
      */ 
-    public function getDateDepart() : DateTime
+    public function getDateDepart()
     {
         return $this->dateDepart;
     }
@@ -109,7 +110,7 @@ final class Vol {
      *
      * @return  self
      */ 
-    public function setDateDepart(DateTime $dateDepart)
+    public function setDateDepart($dateDepart)
     {
         $this->dateDepart = $dateDepart;
 
@@ -119,7 +120,7 @@ final class Vol {
     /**
      * Get the value of dateArrivee
      */ 
-    public function getDateArrivee() : DateTime
+    public function getDateArrivee() 
     {
         return $this->dateArrivee;
     }
@@ -129,7 +130,7 @@ final class Vol {
      *
      * @return  self
      */ 
-    public function setDateArrivee(DateTime $dateArrivee)
+    public function setDateArrivee($dateArrivee)
     {
         $this->dateArrivee = $dateArrivee;
 

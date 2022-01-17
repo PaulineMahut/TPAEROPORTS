@@ -5,7 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /** 
- * @ORM\Entity 
+ * @ORM\Entity
+ *  @ORM\Table(name="Aeroport",uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"nom"})})
+ * 
 */
 final class Aeroport {
 
@@ -21,10 +23,11 @@ final class Aeroport {
      */
     private string $nom;
 
-    public function __construct(int $id, string $nom)
+    public function __construct(string $nom)
     {
-        $this->id = $id;
         $this->nom = $nom;
+
+        $this->id = random_int(1,99999);
     }
 
     /**

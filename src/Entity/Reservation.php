@@ -11,6 +11,14 @@ use DateTime;
  */
 class Reservation {
 
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
+    private int $id;
+
     /** 
      * @ORM\Column(name="numReservation", type="integer") 
     */
@@ -33,7 +41,7 @@ class Reservation {
     private Passager $passager;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Adherent") //plusieurs pour 1, plusieurs emprunt peuvent avoir 1 seul et meme membre
+     * @ORM\ManyToOne(targetEntity="Client") //plusieurs pour 1, plusieurs emprunt peuvent avoir 1 seul et meme membre
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id") //précise le nom de la colonne de ref avec laquelle on fait la relation
      */
     private Client $client;
@@ -113,5 +121,13 @@ class Reservation {
         $this->dateReservation = $dateReservation;
 
         return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
     }
 }

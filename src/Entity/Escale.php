@@ -10,6 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
 final class Escale {
 
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
+    private int $id;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Aeroport")
      * @ORM\JoinColumn(name="lieuDepart", referencedColumnName="id")
      */
@@ -65,5 +72,13 @@ final class Escale {
         $this->lieuArrivee = $lieuArrivee;
 
         return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
     }
 }

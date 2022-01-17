@@ -10,13 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Client extends Passager {
 
     /**
-     * @ORM\Column(name="userCompte", type="int")
+     * @ORM\Column(name="userCompte", type="integer")
      */
     private int $userCompte;
 
-    public function __construct(int $id, string $nom, string $prenom, int $numPasseport, int $userCompte)
+    public function __construct(string $nom, string $prenom, int $numPasseport, int $userCompte)
     {
-        parent::__construct($id, $nom, $prenom, $numPasseport, $userCompte);
+        parent::__construct($nom, $prenom, $numPasseport, $userCompte);
 
         $this->userCompte = $userCompte;
     }
