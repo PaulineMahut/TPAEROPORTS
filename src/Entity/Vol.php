@@ -25,22 +25,22 @@ final class Vol {
     /**
      * @ORm\Column(length="10", name="dateDepart", type="datetime")
      */
-    private $dateDepart;
+    private DateTime $dateDepart;
 
     /**
      * @ORm\Column(length="10", name="dateArrivee", type="datetime")
      */
-    private $dateArrivee;
+    private DateTime $dateArrivee;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Aeroport") //plusieurs pour 1, plusieurs emprunt peuvent avoir 1 seul et meme membre
-     * @ORM\JoinColumn(name="lieuDepart_id", referencedColumnName="id") //précise le nom de la colonne de ref avec laquelle on fait la relation
+     * @ORM\ManyToOne(targetEntity="Aeroport") 
+     * @ORM\JoinColumn(name="lieuDepart_id", referencedColumnName="nom") 
      */
     private Aeroport $lieuDepart;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Aeroport") //plusieurs pour 1, plusieurs emprunt peuvent avoir 1 seul et meme membre
-     * @ORM\JoinColumn(name="lieuArrivee_id", referencedColumnName="id") //précise le nom de la colonne de ref avec laquelle on fait la relation
+     * @ORM\ManyToOne(targetEntity="Aeroport") 
+     * @ORM\JoinColumn(name="lieuArrivee_id", referencedColumnName="nom")
      */
     private Aeroport $lieuArrivee;
     
@@ -100,7 +100,7 @@ final class Vol {
     /**
      * Get the value of dateDepart
      */ 
-    public function getDateDepart()
+    public function getDateDepart() : DateTime
     {
         return $this->dateDepart;
     }
@@ -110,7 +110,7 @@ final class Vol {
      *
      * @return  self
      */ 
-    public function setDateDepart($dateDepart)
+    public function setDateDepart(DateTime $dateDepart)
     {
         $this->dateDepart = $dateDepart;
 
@@ -120,7 +120,7 @@ final class Vol {
     /**
      * Get the value of dateArrivee
      */ 
-    public function getDateArrivee() 
+    public function getDateArrivee() : DateTime
     {
         return $this->dateArrivee;
     }
@@ -130,7 +130,7 @@ final class Vol {
      *
      * @return  self
      */ 
-    public function setDateArrivee($dateArrivee)
+    public function setDateArrivee(DateTime $dateArrivee)
     {
         $this->dateArrivee = $dateArrivee;
 

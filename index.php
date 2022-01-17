@@ -7,6 +7,7 @@ require_once('bootstrap.php');
 
 //vendor/bin/doctrine orm:schema-tool:create
 
+use App\Controllers\AppController;
 use App\Entity\Aeroport;
 use App\Entity\Client;
 use App\Entity\Escale;
@@ -33,6 +34,14 @@ use DateTime;
 // $entityManager->persist($Paris_Marseille);
 // $entityManager->flush();
 
-// $Paris_Lyon = new Vol("Paris_Lyon", DateTime::createFromFormat('j-M-Y', '25-Dec-2021') , DateTime::createFromFormat('j-M-Y', '25-Dec-2021'), $CharlesDeGaulle, $MarseilleProvence);
-// $entityManager->persist($Paris_Marseille);
-// $entityManager->flush();
+// $LyonSaintExupery = new Aeroport(("Lyon Saint-Exupéry"));
+// $entityManager->persist($LyonSaintExupery);
+// $entityManager->flush($LyonSaintExupery);
+
+// $entityManager->flush($LyonSaintExupery);
+
+// $Paris_Lyon = new Vol("Paris_Lyon", DateTime::createFromFormat('j-M-Y', '25-Dec-2021') , DateTime::createFromFormat('j-M-Y', '25-Dec-2021'), $CharlesDeGaulle, $LyonSaintExupery);
+// $entityManager->persist($Paris_Lyon);
+// $entityManager->flush($Paris_Lyon);
+
+AppController::index();

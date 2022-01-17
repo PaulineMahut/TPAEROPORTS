@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Traits\Nationalite;
 use Doctrine\ORM\Mapping as ORM;
 
 /** 
@@ -10,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * 
 */
 final class Aeroport {
+
+    use Nationalite;
 
     /**
      * @ORM\Id
@@ -20,6 +23,7 @@ final class Aeroport {
 
     /**
      * @ORM\Column(name="nom", type="string")
+     * @ORM\OneToMany(targetEntity="Vol", mappedBy="Aeroport")
      */
     private string $nom;
 

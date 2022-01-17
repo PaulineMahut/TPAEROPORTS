@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use App\Traits\Nationalite;
 use Doctrine\ORM\Mapping as ORM;
 
 /** @ORM\MappedSuperclass 
  * @ORM\Table(name="Passager",uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"numPasseport"})})
 */
 abstract class Passager {
+
+    use Nationalite;
 
     /**
      * @ORM\Id
