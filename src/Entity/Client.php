@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Traits\Nationalite;
 use Doctrine\ORM\Mapping as ORM;
 
 /** 
@@ -9,16 +10,19 @@ use Doctrine\ORM\Mapping as ORM;
 */
 class Client extends Passager {
 
+    use Nationalite;
+
     /**
      * @ORM\Column(name="userCompte", type="integer")
      */
     private int $userCompte;
 
-    public function __construct(string $nom, string $prenom, int $numPasseport, int $userCompte)
+    public function __construct(string $nom, string $prenom, int $numPasseport, int $userCompte, string $nationalite)
     {
-        parent::__construct($nom, $prenom, $numPasseport, $userCompte);
+        parent::__construct($nom, $prenom, $numPasseport, $userCompte, $nationalite);
 
         $this->userCompte = $userCompte;
+        $this->nationalite = $nationalite;
     }
 
 
