@@ -34,12 +34,13 @@ abstract class Passager {
     */
     private int $numPasseport;
 
-    public function __construct(string $nom, string $prenom, int $numPasseport)
+    public function __construct(string $nom, string $prenom, int $numPasseport, string $nationalite)
     {
         $this->id = random_int(1, 99999);
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->numPasseport = $numPasseport;
+        $this->nationalite = $nationalite;
     }
 
     public function reserverBillet(Reservation $numReservation)

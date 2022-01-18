@@ -27,9 +27,10 @@ final class Aeroport {
      */
     private string $nom;
 
-    public function __construct(string $nom)
+    public function __construct(string $nom, string $nationalite)
     {
         $this->nom = $nom;
+        $this->nationalite = $nationalite;
 
         $this->id = random_int(1,99999);
     }
